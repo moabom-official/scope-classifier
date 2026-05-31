@@ -144,19 +144,44 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument(
         "--queries",
         default=(
-            "iPhone vs Galaxy 비교,"
+            # === 비교 영상 후보 (label=1 추정) ===
             "iPhone 15 vs iPhone 14 비교,"
+            "iPhone 16 vs 15 비교,"
             "갤럭시 S24 vs S23 비교,"
-            "Pixel vs iPhone 비교,"
-            "AirPods Pro vs Galaxy Buds,"
-            "MacBook Pro vs Air,"
-            "노트북 추천 TOP,"
-            "스마트폰 추천 순위,"
-            "무선이어폰 비교"
+            "갤럭시 S25 vs S24 비교,"
+            "Pixel 9 vs iPhone 15,"
+            "AirPods Pro 2 vs Galaxy Buds,"
+            "MacBook Pro vs Air 비교,"
+            "M3 vs M2 비교,"
+            "iPad Pro vs Air 비교,"
+            "갤럭시 Z Flip vs Fold,"
+            "맥북 윈도우 노트북 비교,"
+            # === 추천/랭킹 (label=1 추정) ===
+            "2024 노트북 추천 TOP 5,"
+            "2024 스마트폰 추천,"
+            "무선이어폰 추천 베스트,"
+            "태블릿 추천 순위,"
+            # === 단일 제품 리뷰 (label=0 추정) ===
+            "iPhone 15 Pro 한 달 사용기,"
+            "iPhone 15 Pro Max 리뷰,"
+            "갤럭시 S24 Ultra 솔직 리뷰,"
+            "갤럭시 S24 한 달 사용 후기,"
+            "MacBook Air M3 리뷰,"
+            "MacBook Pro M3 사용기,"
+            "AirPods Pro 2 장기 사용 리뷰,"
+            "iPad Pro 사용 후기,"
+            "Galaxy Tab 리뷰,"
+            "Pixel 8 Pro 솔직 리뷰,"
+            # === 언박싱 (label=0 추정) ===
+            "iPhone 15 Pro 언박싱,"
+            "갤럭시 S24 개봉기,"
+            # === 뉴스 (label=0) ===
+            "iPhone 16 출시 예정,"
+            "갤럭시 S25 루머"
         ),
-        help="youtube_search source 검색어 (콤마 구분)",
+        help="youtube_search source 검색어 (콤마 구분, 기본값 30개)",
     )
-    p.add_argument("--per-query", type=int, default=20, help="검색어당 영상 수")
+    p.add_argument("--per-query", type=int, default=50, help="검색어당 영상 수 (max 50)")
     p.add_argument(
         "--env-file", default=".env", help=".env 위치 (기본 cwd)"
     )
