@@ -41,9 +41,20 @@ def call_codex(prompt: str, config: CodexConfig) -> str:
     """Codex exec 1회 호출. stdout 반환.
 
     `bash -lc` 로 nvm/PATH 안전 + non-interactive 셸에서도 동작.
+
+    `--effort` 는 wrapper-level 옵션이고 `codex exec` 가 직접 지원하지 않으므로
+    `-c model_reasoning_effort='medium'` 형태의 config override 로 통일.
+    `--model` 은 모든 버전에서 지원.
     """
     # codex exec 는 PROMPT 를 인자로 받음. shell 메타 회피 위해 stdin 으로 넘김.
-    cmd = ["bash", "-lc", f"codex exec --model {config.model} --effort {config.effort} -"]
+    cmd = [
+        "bash",
+        "-lc",
+        (
+            f"codex exec --model '{config.model}' "
+            f"-c model_reasoning_effort='{config.effort}' -"
+        ),
+    ]
 
     try:
         proc = subprocess.run(
