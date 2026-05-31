@@ -211,12 +211,13 @@ def main(argv: list[str] | None = None) -> int:
         gradient_checkpointing=args.gradient_checkpointing,
     )
 
+    # HF transformers 4.45+ 에서 Trainer 의 tokenizer 인자가 processing_class 로 변경됨
     trainer = Trainer(
         model=model,
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=val_ds,
-        tokenizer=tokenizer,
+        processing_class=tokenizer,
         data_collator=DataCollatorWithPadding(tokenizer),
         compute_metrics=compute_metrics_fn,
     )
