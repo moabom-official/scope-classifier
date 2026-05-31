@@ -1,0 +1,15 @@
+{
+  "model": "team-lucid/deberta-v3-xlarge-korean",
+  "params": "800M",
+  "best_epoch": "best by load_best_model_at_end (epoch 미상 — Runpod 세션 종료로 raw 로그 회수 불가)",
+  "epochs": [
+    {"epoch": 3, "eval_loss": 0.679, "eval_accuracy": 0.8757, "eval_f1_macro": 0.8755, "eval_auroc": 0.9504, "comment": "final epoch — 3번째 시도의 마지막 eval"}
+  ],
+  "best_val_after_load_best": {
+    "val_loss": 0.5413756966590881,
+    "val_accuracy": 0.8813559322033898,
+    "val_f1_macro": 0.881295308657746,
+    "val_auroc": 0.9523627075351213
+  },
+  "notes": "Runpod RTX A6000 학습. 3번 시도 (1: tokenizer 호환성 → 2: PyTorch CUDA 드라이버 mismatch → 3: /workspace volume storage 에러 → /root container disk 로 우회 성공). 정확한 epoch 별 raw 로그는 Runpod 세션 종료로 회수 못 함. final/best 결과는 metrics.json 에 보존."
+}

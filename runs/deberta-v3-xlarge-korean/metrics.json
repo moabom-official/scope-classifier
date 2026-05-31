@@ -1,0 +1,36 @@
+{
+  "model": "team-lucid/deberta-v3-xlarge-korean",
+  "seed": 42,
+  "val": {
+    "val_loss": 0.5413756966590881,
+    "val_accuracy": 0.8813559322033898,
+    "val_f1_macro": 0.881295308657746,
+    "val_auroc": 0.9523627075351213,
+    "val_precision_0": 0.8837209302325582,
+    "val_recall_0": 0.8735632183908046,
+    "val_f1_0": 0.8786127167630058,
+    "val_precision_1": 0.8791208791208791,
+    "val_recall_1": 0.8888888888888888,
+    "val_f1_1": 0.8839779005524862,
+    "val_runtime": 1.7347,
+    "val_samples_per_second": 102.035,
+    "val_steps_per_second": 6.918,
+    "epoch": 3.0
+  },
+  "test": {
+    "test_loss": 0.5456100702285767,
+    "test_accuracy": 0.88268156424581,
+    "test_f1_macro": 0.8821519265134652,
+    "test_auroc": 0.9528360819590205,
+    "test_precision_0": 0.9125,
+    "test_recall_0": 0.8390804597701149,
+    "test_f1_0": 0.874251497005988,
+    "test_precision_1": 0.8585858585858586,
+    "test_recall_1": 0.9239130434782609,
+    "test_f1_1": 0.8900523560209425,
+    "test_runtime": 1.7846,
+    "test_samples_per_second": 100.303,
+    "test_steps_per_second": 6.724,
+    "epoch": 3.0
+  }
+}

@@ -17,6 +17,16 @@ build/
 # 중간 데이터 (커밋 안 함)
 data/candidates.jsonl
 data/labels/errors.jsonl
+data/labels/sample*.jsonl
+
+# 학습 산출물 — checkpoint·best weights 는 무거워 commit X (~3GB까지 가능)
+# 단 metrics.json / train_summary.json / epoch_metrics.json 은 commit (가벼움, 결과 보존용)
+runs/*/checkpoint-*/
+runs/*/best/
+runs/*/runs/
+runs/*.bin
+runs/*.safetensors
+*.log
 
 # IDE
 .vscode/

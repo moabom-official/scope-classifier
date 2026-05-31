@@ -1,0 +1,13 @@
+{
+  "model": "klue/roberta-large",
+  "params": "340M",
+  "best_epoch": 1,
+  "epochs": [
+    {"epoch": 1, "eval_loss": 0.319, "eval_accuracy": 0.8814, "eval_f1_macro": 0.8812, "eval_auroc": 0.9367, "train_loss_approx": 0.37, "best": true},
+    {"epoch": 2, "eval_loss": 0.342, "eval_accuracy": 0.8757, "eval_f1_macro": 0.8757, "eval_auroc": 0.9446, "train_loss_approx": 0.25},
+    {"epoch": 3, "eval_loss": 0.472, "eval_accuracy": 0.8644, "eval_f1_macro": 0.8644, "eval_auroc": 0.9585, "train_loss_approx": 0.07},
+    {"epoch": 4, "eval_loss": 0.581, "eval_accuracy": 0.8701, "eval_f1_macro": 0.8696, "eval_auroc": 0.9590, "train_loss_approx": 0.06},
+    {"epoch": 5, "eval_loss": 0.648, "eval_accuracy": 0.8757, "eval_f1_macro": 0.8757, "eval_auroc": 0.9561, "train_loss_approx": 0.02}
+  ],
+  "notes": "epoch 1 이 best. epoch 2+ 부터 명확한 overfit (eval_loss 큰 증가). 사실상 1 epoch 만으로 충분. 후속 모델은 epochs=2~3 권장 + lr 더 낮춤 검토."
+}

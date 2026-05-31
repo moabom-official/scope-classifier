@@ -1,0 +1,36 @@
+{
+  "model": "klue/bert-base",
+  "seed": 42,
+  "val": {
+    "val_loss": 0.4562961161136627,
+    "val_accuracy": 0.8926553672316384,
+    "val_f1_macro": 0.8926553672316384,
+    "val_auroc": 0.9503192848020435,
+    "val_precision_0": 0.8777777777777778,
+    "val_recall_0": 0.9080459770114943,
+    "val_f1_0": 0.8926553672316384,
+    "val_precision_1": 0.9080459770114943,
+    "val_recall_1": 0.8777777777777778,
+    "val_f1_1": 0.8926553672316384,
+    "val_runtime": 0.3802,
+    "val_samples_per_second": 465.512,
+    "val_steps_per_second": 7.89,
+    "epoch": 5.0
+  },
+  "test": {
+    "test_loss": 0.5260752439498901,
+    "test_accuracy": 0.8715083798882681,
+    "test_f1_macro": 0.8709283004671287,
+    "test_auroc": 0.9554597701149425,
+    "test_precision_0": 0.9,
+    "test_recall_0": 0.8275862068965517,
+    "test_f1_0": 0.8622754491017964,
+    "test_precision_1": 0.8484848484848485,
+    "test_recall_1": 0.9130434782608695,
+    "test_f1_1": 0.8795811518324608,
+    "test_runtime": 0.3565,
+    "test_samples_per_second": 502.06,
+    "test_steps_per_second": 8.414,
+    "epoch": 5.0
+  }
+}

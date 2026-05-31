@@ -1,0 +1,36 @@
+{
+  "model": "klue/roberta-large",
+  "seed": 42,
+  "val": {
+    "val_loss": 0.3190497159957886,
+    "val_accuracy": 0.8813559322033898,
+    "val_f1_macro": 0.8812194420477423,
+    "val_auroc": 0.9367177522349937,
+    "val_precision_0": 0.8928571428571429,
+    "val_recall_0": 0.8620689655172413,
+    "val_f1_0": 0.8771929824561403,
+    "val_precision_1": 0.8709677419354839,
+    "val_recall_1": 0.9,
+    "val_f1_1": 0.8852459016393442,
+    "val_runtime": 1.1521,
+    "val_samples_per_second": 153.629,
+    "val_steps_per_second": 5.208,
+    "epoch": 5.0
+  },
+  "test": {
+    "test_loss": 0.26830217242240906,
+    "test_accuracy": 0.8994413407821229,
+    "test_f1_macro": 0.899413086913087,
+    "test_auroc": 0.9583958020989506,
+    "test_precision_0": 0.8876404494382022,
+    "test_recall_0": 0.9080459770114943,
+    "test_f1_0": 0.8977272727272727,
+    "test_precision_1": 0.9111111111111111,
+    "test_recall_1": 0.8913043478260869,
+    "test_f1_1": 0.9010989010989011,
+    "test_runtime": 1.0751,
+    "test_samples_per_second": 166.49,
+    "test_steps_per_second": 5.581,
+    "epoch": 5.0
+  }
+}

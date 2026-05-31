@@ -1,0 +1,13 @@
+{
+  "model": "klue/bert-base",
+  "params": "110M",
+  "best_epoch": 4,
+  "epochs": [
+    {"epoch": 1, "eval_loss": 0.400, "eval_accuracy": 0.8362, "eval_f1_macro": 0.8354, "eval_auroc": 0.9014, "train_loss_approx": 0.39},
+    {"epoch": 2, "eval_loss": 0.338, "eval_accuracy": 0.8644, "eval_f1_macro": 0.8637, "eval_auroc": 0.9326, "train_loss_approx": 0.22},
+    {"epoch": 3, "eval_loss": 0.380, "eval_accuracy": 0.8870, "eval_f1_macro": 0.8870, "eval_auroc": 0.9463, "train_loss_approx": 0.12},
+    {"epoch": 4, "eval_loss": 0.456, "eval_accuracy": 0.8927, "eval_f1_macro": 0.8927, "eval_auroc": 0.9503, "train_loss_approx": 0.04, "best": true},
+    {"epoch": 5, "eval_loss": 0.489, "eval_accuracy": 0.8927, "eval_f1_macro": 0.8927, "eval_auroc": 0.9503, "train_loss_approx": 0.01}
+  ],
+  "notes": "train_loss → 0 으로 가지만 eval_acc 는 계속 ↑. epoch 4 가 best. 약한 overfit 신호 있으나 영향 제한적."
+}

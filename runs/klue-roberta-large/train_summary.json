@@ -1,0 +1,6 @@
+{
+  "model": "klue/roberta-large",
+  "train_runtime_sec": 168.8232,
+  "train_samples_per_sec": 42.056,
+  "epochs": 5.0
+}

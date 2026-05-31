@@ -1,0 +1,11 @@
+{
+  "model": "team-lucid/deberta-v3-xlarge-korean",
+  "train_runtime_sec": 283.7994,
+  "train_samples_per_sec": 15.011,
+  "train_steps_per_sec": 1.882,
+  "train_loss_final": 0.28064781120430665,
+  "epochs": 3.0,
+  "gpu": "NVIDIA RTX A6000 (Runpod)",
+  "vram_used_mib": 16026,
+  "notes": "fp32→cu121 wheel 재설치 후 학습 성공. /workspace 저장 시 inline_container 에러 → /root/runs 사용으로 우회."
+}
