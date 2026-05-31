@@ -123,7 +123,12 @@ def main(argv: list[str] | None = None) -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # === Tokenizer + Model ===
-    tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
+    # fast tokenizer 실패 시 slow 로 fallback (DeBERTa-v2 / SentencePiece 모델 호환).
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
+    except Exception as e:
+        print(f"[warn] fast tokenizer 실패, slow tokenizer 로 fallback: {type(e).__name__}: {e}")
+        tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=False)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     model = AutoModelForSequenceClassification.from_pretrained(
