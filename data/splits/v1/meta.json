@@ -1,0 +1,41 @@
+{
+  "source_path": "data/labels/v1.jsonl",
+  "source_rows": 1936,
+  "filtered_rows": 1776,
+  "languages_kept": [
+    "ko",
+    "en"
+  ],
+  "balance_english": true,
+  "ratios": [
+    0.8,
+    0.1,
+    0.1
+  ],
+  "seed": 42,
+  "splits": {
+    "train": 1420,
+    "val": 177,
+    "test": 179
+  },
+  "label_distribution": {
+    "filtered": {
+      "1": 906,
+      "0": 870
+    },
+    "per_split": {
+      "train": {
+        "1": 724,
+        "0": 696
+      },
+      "val": {
+        "1": 90,
+        "0": 87
+      },
+      "test": {
+        "1": 92,
+        "0": 87
+      }
+    }
+  }
+}
