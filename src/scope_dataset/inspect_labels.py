@@ -1,10 +1,12 @@
-"""Phase 3 — 라벨 분포·spot check.
+"""Phase 3 — 라벨 분포·spot check + CSV export.
 
 분포 + 길이 + 무작위 표본 + sanity check (제목 키워드 vs label 불일치 flag).
+`--export-csv <path>` 옵션으로 Excel/Google Sheets 검수용 CSV 출력.
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import random
 import re
@@ -31,11 +33,56 @@ def has_comparison_signal(text: str) -> bool:
     return any(p.search(text) for p in _COMPARISON_SIGNALS)
 
 
+def export_csv(rows: list[dict], out_path: Path, *, desc_truncate: int = 300) -> int:
+    """라벨 데이터를 Excel/Sheets 친화 CSV 로 내보냄.
+
+    - UTF-8 BOM (Excel 한글 깨짐 방지)
+    - YouTube URL 자동 생성
+    - 검수자가 직접 채울 빈 컬럼(reviewer_label / reviewer_note) 포함
+    - description 은 길어서 truncate
+    """
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+        writer.writerow([
+            "row_num",
+            "video_id",
+            "url",
+            "label",
+            "title",
+            "rationale",
+            "description_short",
+            "reviewer_label",  # 검수자가 직접 채울 칸 (0/1/?)
+            "reviewer_note",   # 검수자 메모
+        ])
+        for i, r in enumerate(rows, 1):
+            vid = r.get("video_id", "")
+            desc = (r.get("description") or "")[:desc_truncate]
+            writer.writerow([
+                i,
+                vid,
+                f"https://youtu.be/{vid}" if vid else "",
+                r.get("label", ""),
+                r.get("title", ""),
+                r.get("rationale", ""),
+                desc,
+                "",
+                "",
+            ])
+    return len(rows)
+
+
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description="라벨 분포·spot check")
+    p = argparse.ArgumentParser(description="라벨 분포·spot check + CSV export")
     p.add_argument("--in", dest="input_path", default="data/labels/v1.jsonl")
     p.add_argument("--sample", type=int, default=30, help="무작위 표본 수")
     p.add_argument("--seed", type=int, default=42, help="표본 추출 seed")
+    p.add_argument(
+        "--export-csv",
+        dest="export_csv",
+        default=None,
+        help="CSV 출력 경로 (Excel/Sheets 검수용). 지정 시 sample 출력 대신 CSV 만 만듦",
+    )
     args = p.parse_args(argv)
 
     in_path = Path(args.input_path)
@@ -48,6 +95,13 @@ def main(argv: list[str] | None = None) -> int:
     if total == 0:
         print("[ERROR] 빈 데이터셋", file=sys.stderr)
         return 1
+
+    # CSV export mode — 분포 통계 후 CSV 만 만들고 종료
+    if args.export_csv:
+        out = Path(args.export_csv)
+        n = export_csv(rows, out)
+        print(f"[csv] {n} 행 → {out}")
+        return 0
 
     # 분포
     label_count = Counter(r.get("label") for r in rows)
