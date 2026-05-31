@@ -177,9 +177,30 @@ def main(argv: list[str] | None = None) -> int:
             "갤럭시 S24 개봉기,"
             # === 뉴스 (label=0) ===
             "iPhone 16 출시 예정,"
-            "갤럭시 S25 루머"
+            "갤럭시 S25 루머,"
+            # === v1.1 label=0 보강 (다양한 단일 제품 리뷰) ===
+            "갤럭시 워치 6 리뷰,"
+            "LG 그램 17 리뷰,"
+            "닌텐도 스위치2 한 달 사용,"
+            "PS5 슬림 솔직 리뷰,"
+            "아이패드 미니 7 리뷰,"
+            "갤럭시 Z 플립6 솔직 후기,"
+            "갤럭시 Z 폴드6 솔직 후기,"
+            "갤럭시 버즈 3 Pro 리뷰,"
+            "AirPods 4 리뷰,"
+            "샤오미 14 솔직 리뷰,"
+            "Steam Deck 한 달 사용,"
+            "Meta Quest 3 사용기,"
+            "ASUS ROG 노트북 리뷰,"
+            "삼성 갤럭시북 리뷰,"
+            "델 XPS 솔직 후기,"
+            "워치6 클래식 한 달 후기,"
+            "Apple Watch 9 리뷰,"
+            "키보드 리뷰 솔직 후기,"
+            "게이밍 모니터 솔직 리뷰,"
+            "기계식 키보드 한 달 후기"
         ),
-        help="youtube_search source 검색어 (콤마 구분, 기본값 30개)",
+        help="youtube_search source 검색어 (콤마 구분, 기본값 50개)",
     )
     p.add_argument("--per-query", type=int, default=50, help="검색어당 영상 수 (max 50)")
     p.add_argument(
